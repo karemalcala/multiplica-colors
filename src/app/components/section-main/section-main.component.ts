@@ -11,7 +11,7 @@ export class SectionMainComponent implements OnInit {
   public title: string;
 
   constructor() {
-    this.colors = [ 1, 2, 3];
+    this.colors = [ 1, 2, 3, 4, 5, 6];
   }
 
   ngOnInit(): void {

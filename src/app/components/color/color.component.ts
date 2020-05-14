@@ -12,7 +12,7 @@ export class ColorComponent implements OnInit {
 
   ngOnInit(): void {
     this.colorService.getColors().subscribe(data => {
-      console.log(data.data);
+      console.log(data);
     });
   }
 

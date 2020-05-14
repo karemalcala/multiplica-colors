@@ -1,0 +1,23 @@
+//breakpoints
+@mixin breakpoint-min($width: $w-sm){
+  @media screen and(min-width: $width){
+      @content;
+  }
+}
+@mixin breakpoint-max($width: $w-sm){
+  @media screen and(max-width: $width){
+      @content;
+  }
+}
+@mixin breakpoint-range($width-min: $w-sm, $width-max: $w-lg){
+  @media screen and(min-width: $width) and (max-width: $width){
+      @content;
+  }
+}
+
+//IE
+@mixin media-ie($width: 0\0){
+  @media screen and(min-width: $width){
+      @content;
+  }
+}
