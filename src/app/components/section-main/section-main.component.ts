@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ColorService } from '../color/color.service';
+import { DataService } from '../../services/data.service';
 import { Color } from '../../models/color/color.interface';
 
 @Component({
@@ -12,7 +12,7 @@ export class SectionMainComponent implements OnInit {
   public colors: Array<Color>;
   public title: string;
 
-  constructor(private colorService: ColorService) {
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class SectionMainComponent implements OnInit {
   }
 
   getPageColor(){
-    this.colorService.getColors().subscribe(data => {
+    this.dataService.getColors().subscribe(data => {
       this.colors = data.data;
       console.log(this.colors);
     });
