@@ -6,9 +6,9 @@
   background-color: #9e9e9e;
   padding: 20px;
 
-  @include breakpoint-max(767.98px){
+  /* @include breakpoint-max(){
     justify-content: center;
-  }
+  } */
 
   &__item{
     width: 31%;
@@ -17,10 +17,10 @@
     height: calc((100% - 66px - 24px) / 2);
     border-radius: 7px;
 
-    @include breakpoint-max(767.98px){
+    /* @include breakpoint-max(){
       width: 100%;
       margin-bottom: 12px;
-    }
+    } */
   }
 
 }

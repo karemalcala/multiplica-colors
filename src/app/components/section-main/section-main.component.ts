@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ColorService } from '../color/color.service';
+import { Color } from '../../models/color/color.interface';
 
 @Component({
   selector: 'app-section-main',
@@ -7,15 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionMainComponent implements OnInit {
 
-  public colors: Array<number>;
+  public colors: Array<Color>;
   public title: string;
 
-  constructor() {
-    this.colors = [ 1, 2, 3, 4, 5, 6];
+  constructor(private colorService: ColorService) {
   }
 
   ngOnInit(): void {
-    console.log(this.colors);
+    this.getPageColor();
+  }
+
+  getPageColor(){
+    this.colorService.getColors().subscribe(data => {
+      this.colors = data.data;
+      console.log(this.colors);
+    });
   }
 
 }
