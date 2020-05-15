@@ -2,6 +2,14 @@
   height: 100%;
   display: flex;
   flex-wrap: wrap;
+  border-radius: 7px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px 2px #0000002e;
+  transition: all .3s;
+
+  &:hover{
+    transform: scale(1.05);
+  }
 
   .year, .date{
     padding: 10px;
@@ -22,11 +30,21 @@
       font-size: 1.3rem;
       font-weight: bold;
     }
+
+    .copied{
+      font-size: 1.3rem;
+      font-weight: bold;
+      width: fit-content;
+      margin: auto;
+      background-color: rgba(0,0,0,.3);
+      padding: 5px 10px;
+    }
   }
 
-  .date{
+  .pantone{
     width: 100%;
     text-align: end;
     align-self: flex-end;
+    padding: 10px;
   }
 }

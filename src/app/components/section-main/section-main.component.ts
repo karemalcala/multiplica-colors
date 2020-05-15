@@ -20,7 +20,7 @@ export class SectionMainComponent implements OnInit {
   }
 
   getPageColor(){
-    this.dataService.getColors().subscribe(data => {
+    this.dataService.getData('').subscribe(data => {
       this.colors = data.data;
       console.log(this.colors);
     });

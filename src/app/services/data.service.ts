@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  private urlApi = 'https://reqres.in/api/colors';
 
   constructor(private Http: HttpClient) { }
 
-  getColors(): Observable<any[any]> {
-    return this.Http.get<any[any]>(this.urlApi);
+  getData(query: string): Observable<any> {
+    const urlApi = 'https://reqres.in/api/colors';
+    return this.Http.get<any>(urlApi + query);
   }
 }

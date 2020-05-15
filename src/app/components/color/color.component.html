@@ -1,10 +1,15 @@
-<div class="color--contain">
-  <p class="year">2006</p>
+<div class="color--contain" (click)="copyColor()" [ngClass]="{'jingle': copy}" [ngStyle]="{'background-color': !code ? 'silver' : code}">
+  <p class="year">{{year}}</p>
 
   <div class="contain-title">
-    <h1 class="color--title">Sand dollar</h1>
-    <p class="color--code" (click)="code()">#DECDBE</p>
+    <ng-container *ngIf="!copy; else elseTemplate">
+      <h1 class="color--title">{{name}}</h1>
+      <p class="color--code">{{code}}</p>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <p class="copied">¡Copiado!</p>
+    </ng-template>
   </div>
 
-  <p class="date">13-1106</p>
+  <p class="pantone">{{pantone}}</p>
 </div>

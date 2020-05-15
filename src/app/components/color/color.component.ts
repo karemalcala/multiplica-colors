@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-color',
@@ -7,13 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorComponent implements OnInit {
 
-  constructor() { }
+  @Input() name: string;
+  @Input() year: number;
+  @Input() code: string;
+  @Input() pantone: string;
+
+  public copy: boolean;
+
+  constructor() {
+    this.copy = false;
+  }
 
   ngOnInit(): void {
   }
 
-  code(): void{
-    console.log('dateee');
+  copyColor(): void{
+    this.copy = true;
+    navigator.clipboard.writeText(this.code);
+
+    setTimeout(() => {
+      this.copy = false;
+    }, 500);
   }
 
 }
