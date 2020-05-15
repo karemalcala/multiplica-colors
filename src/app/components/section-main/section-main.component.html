@@ -1,5 +1,5 @@
 <main class="grilla">
-  <section class="grilla__item">
-    <app-color *ngFor="let color of colors"></app-color>
+  <section class="grilla__item" *ngFor="let color of colors">
+    <app-color [year]="color.year" [name]="color.name" [code]="color.color" [pantone]="color.pantone_value"></app-color>
   </section>
 </main>

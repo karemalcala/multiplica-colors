@@ -1,1 +1,15 @@
-<p>color works!</p>
+<div class="color--contain" (click)="copyColor()" [ngClass]="{'jingle': copy}" [ngStyle]="{'background-color': !code ? 'silver' : code}">
+  <p class="year">{{year}}</p>
+
+  <div class="contain-title">
+    <ng-container *ngIf="!copy; else elseTemplate">
+      <h1 class="color--title">{{name}}</h1>
+      <p class="color--code">{{code}}</p>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <p class="copied">¡Copiado!</p>
+    </ng-template>
+  </div>
+
+  <p class="pantone">{{pantone}}</p>
+</div>
