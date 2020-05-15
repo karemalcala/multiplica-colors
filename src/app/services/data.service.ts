@@ -10,7 +10,7 @@ export class DataService {
   constructor(private Http: HttpClient) { }
 
   getData(query: string): Observable<any> {
-    const urlApi = 'https://reqres.in/api/colors';
+    const urlApi = 'https://reqres.in/api/colors?page=' + query;
     return this.Http.get<any>(urlApi + query);
   }
 }

@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'page-test';
+  public actualPage: number;
+  public totalPage: number;
+
+  constructor(){
+    this.actualPage = 1;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Color } from '../../models/color/color.interface';
 
@@ -8,6 +8,8 @@ import { Color } from '../../models/color/color.interface';
   styleUrls: ['./section-main.component.scss']
 })
 export class SectionMainComponent implements OnInit {
+
+  @Input() pageActual: number;
 
   public colors: Array<Color>;
   public title: string;
@@ -20,7 +22,7 @@ export class SectionMainComponent implements OnInit {
   }
 
   getPageColor(){
-    this.dataService.getData('').subscribe(data => {
+    this.dataService.getData(`${this.pageActual}`).subscribe(data => {
       this.colors = data.data;
       console.log(this.colors);
     });
