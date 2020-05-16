@@ -10,9 +10,11 @@ export class SectionFooterComponent implements OnInit {
   @Input() actualPage: number;
   @Input() totalPage: number;
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
+    console.log(this.actualPage, this.totalPage);
   }
 
   next(): number{

@@ -10,6 +10,15 @@ export class AppComponent {
   public totalPage: number;
 
   constructor(){
-    this.actualPage = 1;
+  }
+
+  updateTotalPage(input: number): void{
+    console.log(input);
+    this.totalPage = input;
+  }
+
+  updatePageActual(input: number): void{
+    console.log(input);
+    this.actualPage = input;
   }
 }
