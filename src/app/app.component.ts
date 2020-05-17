@@ -1,24 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from './services/data.service';
+import { Color } from './models/color/color.interface';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  public actualPage: number;
-  public totalPage: number;
+export class AppComponent implements OnInit{
+  public pageActual: number;
+  public pageTotal: number;
+  public colors: [Color];
 
-  constructor(){
+  constructor(private dataService: DataService){
   }
 
-  updateTotalPage(input: number): void{
-    console.log(input);
-    this.totalPage = input;
+  ngOnInit(): void {
+    this.getPageColor();
+  }
+
+  getPageColor(): void{
+    this.dataService.getData(this.pageActual).subscribe(data => {
+      console.log(data);
+      this.colors = data.data;
+      this.pageActual = data.page;
+      this.pageTotal = data.total_pages;
+      console.log(this.colors, this.pageActual, this.pageTotal);
+    });
   }
 
   updatePageActual(input: number): void{
     console.log(input);
-    this.actualPage = input;
+    this.pageActual = input;
+    this.getPageColor();
   }
 }
